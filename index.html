@@ -179,6 +179,19 @@ body.card #touch{display:none!important}
 }
 @media (pointer:coarse){ body.driving #touch{display:flex} }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+#garage{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#garage>*{flex-shrink:0}
+@media (max-width:640px){
+  #list{min-height:auto;grid-auto-columns:minmax(128px,1fr);padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .car{scroll-snap-align:start;grid-template-columns:12px 1fr;gap:8px;padding:9px 10px;touch-action:pan-x}
+  .car .plate{display:none} .car b{font-size:14px} .car small{font-size:11px}
+  #garage .trailhint{font-size:12px}
+}
+@media (max-height:500px) and (orientation:landscape){
+  #garage{width:300px;padding:12px;gap:8px} #garage h2{font-size:20px} #garage .keys,#garage .trailhint,#stats{display:none}
+  .car{padding:7px 10px} .car small{display:none}
+  #go{position:sticky;bottom:0;z-index:1;box-shadow:0 -10px 14px rgba(31,34,38,.92)}
+}
 #garage .credit{font-size:11px;opacity:.6;margin:6px 0 0;line-height:1.35}#garage .credit a{color:inherit}
 </style>
 </head>
